@@ -1,0 +1,13 @@
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                %d{yyyy-MM-dd HH:mm:ss} - [%thread] - [%level] - %logger{36} - %msg %replace(%X{X-Correlation-ID}){'(.+)',' - X-Correlation-ID: $1'} %replace(%X{X-Request-ID}){'(.+)',' - X-Request-ID: $1'} %n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>
